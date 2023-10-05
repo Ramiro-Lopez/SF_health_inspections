@@ -21,18 +21,6 @@ def evaluate(val, yhat_df, target_var):
     rmse = round(sqrt(mean_squared_error(val[target_var], yhat_df[target_var])), 0)
     return rmse
 
-    # evaluation function to compute rmse
-def evaluate(target_var):
-    '''
-    This function will take the actual values of the target_var from validate, 
-    and the predicted values stored in yhat_df, 
-    and compute the rmse, rounding to 0 decimal places. 
-    it will return the rmse. 
-    '''
-    rmse = round(sqrt(mean_squared_error(validate[target_var], yhat_df[target_var])), 0)
-    return rmse
-
-
 # ==============================================================================================
 
 # plot and evaluate 
@@ -48,12 +36,8 @@ def plot_and_eval(train, val, yhat_df, target_var):
     plt.plot(val[target_var], label = 'Validate', linewidth = 1)
     plt.plot(yhat_df[target_var])
     plt.title(target_var)
-    rmse = evaluate(val, yhat_df, target_var)
+    rmse = evaluate( val, yhat_df, target_var)
     print(target_var, '-- RMSE: {:.0f}'.format(rmse))
     plt.show()
 
 # ==============================================================================================
-
-
-
-
